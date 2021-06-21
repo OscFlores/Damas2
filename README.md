@@ -3,13 +3,13 @@
 ## Compilar
 
 ```bash
-javac -d build  ./S2/Principal/*
+javac -d build  ./R2/Principal/*
 ```
 
 ## Ejecutar
 
 ```bash
-java -cp ./build S2.Principal.Principal
+java -cp ./build R2.Principal.Principal
 ```
 
 ## Ejecutar .JAR
