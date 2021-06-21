@@ -40,10 +40,10 @@ public class Celdas {
     public boolean getBlanco(){
         return esBlanco;
     }
-    public void setIsWhite(boolean Blanco){
+    public void setEsBlanco(boolean Blanco){
         this.esBlanco = Blanco;
     }
-    public void resetCell(){
+    public void ResetearCeldas(){
         this.Celda = r+r+r+r+r+r+r+r+r+r+r;
     }
     public void setJugador1(boolean status){

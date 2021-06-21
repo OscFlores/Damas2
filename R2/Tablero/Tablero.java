@@ -33,7 +33,7 @@ public class Tablero {
                     }
                 }else{ 
                     Tablero[i][j] = new Celdas(8,false); 
-                    Tablero[i][j].setIsWhite(true);
+                    Tablero[i][j].setEsBlanco(true);
                 }
             }
 
@@ -68,13 +68,14 @@ public class Tablero {
         NumerodeColumnas();
         System.out.println("\n\n");
     }
-    public void printBoard(int x, int y, int x1,int y1){
+    ////////////////////////////////
+    public void ImprimirTablero(int x, int y, int x1,int y1){
         boolean tmp = true;
         if(!Tablero[x][y].getJugador1()){ //
             tmp = false;   
         }
-        resetCell(x,y,false,tmp);  
-        resetCell(x1,y1,true,tmp);
+        resetCeldas(x,y,false,tmp);  
+        resetCeldas(x1,y1,true,tmp);
         NumerodeColumnas();
         System.out.println("\n");
         for (int i=0; i<Filas; i++){ 
@@ -95,11 +96,11 @@ public class Tablero {
         NumerodeColumnas();
         System.out.println("\n\n");
     }
+    /////////////////////////////////////////////
     public void CambiarFicha(int x, int y, int k){
-        String g ="\u001B[32m"; //green 
-        String ye ="\u001B[33m"; //yellow
-        String r ="\u001B[31m";//reset
-
+        String g ="\u001B[32m"; 
+        String ye ="\u001B[33m"; 
+        String r ="\u001B[31m";
         if(k==2){
             if(Tablero[x][y].getJugador1()){
                 Tablero[x][y].setCelda(a+a+a+a+ye+c+c+c+r+a+a+a+a); 
@@ -107,19 +108,20 @@ public class Tablero {
                 Tablero[x][y].setCelda(a+a+a+a+g+c+c+c+r+a+a+a+a); 
             }
         }else{
-            Tablero[x][y].resetCell();
+            Tablero[x][y].ResetearCeldas();
 
         }
     }
+    //////////////////////////////////////////////
     public Celdas[][] getTablero(){
         return Tablero;
     }
     public void setTablero(int x, int y, Celdas[][] Table){
         this.Tablero[x][y] = Table[x][y];
     }
-    public void resetCell(int x, int y,boolean Ocupado,boolean option){
+    public void resetCeldas(int x, int y,boolean Ocupado,boolean option){
         Tablero[x][y].setOcupado(Ocupado);   
-        Tablero[x][y].resetCell();
+        Tablero[x][y].ResetearCeldas();
         Tablero[x][y].setJugador1(option);
     }
     public void NumerodeColumnas(){
