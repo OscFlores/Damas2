@@ -62,10 +62,10 @@ public class ManejadorInicio {
         }while(tmp);
         if(sTablero.FichaJ2()==0){ 
             sJugadores.RestarPunteo(idP2-1);
-            sJugadores.AñadirPunteo(idP1-1);
+            sJugadores.AnadirPunteo(idP1-1);
         }else{
             sJugadores.RestarPunteo(idP1-1);
-            sJugadores.AñadirPunteo(idP2-1);
+            sJugadores.AnadirPunteo(idP2-1);
         }
         System.out.println("Juego Terminado");
     }

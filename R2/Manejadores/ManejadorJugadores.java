@@ -68,7 +68,7 @@ public class ManejadorJugadores {
         return  VerificarId(getEntero("Ingrese # Jugador"+(1+i)+" (id): ")); 
     }
     ///////////////////////////////////////////////////////
-    public void AñadirPunteo(int id){
+    public void AnadirPunteo(int id){
         p[id].setPartidasGanadas((p[id].getPartidasGanadas()+1));
         System.out.println("Gano "+p[id].getNombreJugador()+" id:" +p[id].getid());
     }
