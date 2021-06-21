@@ -1,0 +1,55 @@
+<?xml version ="1.0" ?>
+<project name="DAMAS" default ="jar" basedir =".">
+<description >
+DAMAS
+</description >
+<!-- directorios globales para la compilación src-> código, build -> .class, dist->jar -->
+<property name="R2" location ="R2" />
+<property name="build" location ="build" />
+<property name="dist" location ="dist" />
+<property name="javadoc" location ="javadoc" />
+<!-- nombre para el jar -->
+<property name="nameDist" location ="MyApp" />
+<target name="init" >
+<!-- generamos un timestamp -->
+<tstamp />
+<!-- Create the build directory structure used by compile -->
+<mkdir dir="${build}" />
+</target >
+<target name="compile" depends ="init" description ="compile the source" >
+<!-- Compilando el código en ${src} a ${build} -->
+<javac srcdir ="${R2}" destdir ="${build}" />
+</target >
+<target name="runClass" depends ="compile" description ="compile the source" >
+<!-- Compilando el código en ${src} a ${build} -->
+<java classname ="R2.PrincipaL.Principal" classpath ="${build}" />
+</target >
+<target name="jar" depends ="compile" description ="Generando el directorio dist para almacenar el Jar " >
+<!-- Creamos el directorio dist/lib -->
+<mkdir dir="${dist}/lib" />
+<!-- Agregamos todo lo que hay en ${build} en ${nameDist}-${DSTAMP}.jar -->
+<jar jarfile ="${dist}/lib/DAMAS.jar" basedir ="${build}" >
+<manifest >
+<attribute name="Main-Class" value ="R2/Principal/Principal" />
+</manifest >
+</jar>
+</target >
+<!-- Generando la javadoc opcional: depends="jar" -->
+<target name="javadoc" >
+<echo>Making JavaDoc from source </echo>
+<mkdir dir="${javadoc}" />
+<javadoc destdir ="${javadoc}" >
+<fileset dir="${R2}" />
+</javadoc >
+</target >
+<!-- Ejecutando el jar -->
+<target name="run" depends ="jar" >
+<java jar="${dist}/lib/DAMAS.jar" fork="true" />
+</target >
+<!-- Eliminamos los directorios ${build} y ${dist} -->
+<target name="clean" description ="Eliminando todos los directorios" >
+<delete dir="${build}" />
+<delete dir="${dist}" />
+<delete dir="${javadoc}" />
+</target >
+</project>
